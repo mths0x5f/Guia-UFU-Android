@@ -1,9 +1,13 @@
 package io.github.mths0x5f.guiaufu;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class RUCardapioActivity extends ActionBarActivity {
@@ -12,6 +16,7 @@ public class RUCardapioActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rucardapio);
+        checkNetworkConnection();
     }
 
 
@@ -36,4 +41,29 @@ public class RUCardapioActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /* And here we go... Custom methods go below */
+
+
+    /* Reinventing the wheel... Checks if device is connected to any network  */
+    public boolean checkNetworkConnection() {
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
+
+        if(networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        } else {
+            // There's no connection, for some reason
+            toast.setText(R.string.no_network_message);
+            toast.show();
+            return false;
+        }
+
+    }
+
+
+
 }
