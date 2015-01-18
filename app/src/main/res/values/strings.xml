@@ -5,6 +5,6 @@
     <string name="title_activity_rucardapio">Cardápio do RU</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Configurações</string>
-    <string name="no_network_message">Você não está conectado</string>
+    <string name="toast_no_network">Você não está conectado</string>
 
 </resources>

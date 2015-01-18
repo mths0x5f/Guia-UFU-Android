@@ -16,7 +16,7 @@ public class RUCardapioActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rucardapio);
-        checkNetworkConnection();
+        isNetworkConnected();
     }
 
 
@@ -45,20 +45,22 @@ public class RUCardapioActivity extends ActionBarActivity {
     /* And here we go... Custom methods go below */
 
 
-    /* Reinventing the wheel... Checks if device is connected to any network  */
-    public boolean checkNetworkConnection() {
+    /* Reinventing the wheel, part I
+     * Something to check if device is connected to a network
+     */
+    public boolean isNetworkConnected() {
 
         ConnectivityManager connMgr = (ConnectivityManager)
                             getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
 
-        if(networkInfo != null && networkInfo.isConnected()) {
+        if(networkInfo != null && networkInfo.isConnected())
             return true;
-        } else {
-            // There's no connection, for some reason
-            toast.setText(R.string.no_network_message);
-            toast.show();
+        else {
+            // There's no connection, so tell the user
+            Toast.makeText( getApplicationContext(),
+                            R.string.toast_no_network,
+                            Toast.LENGTH_SHORT ).show();
             return false;
         }
 
