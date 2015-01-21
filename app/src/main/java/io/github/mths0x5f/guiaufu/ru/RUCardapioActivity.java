@@ -33,24 +33,23 @@ public class RUCardapioActivity extends ActionBarActivity {
         // The mess begin below this line
         textView = (TextView) findViewById(R.id.textviewwwww);
 
-        if(isNetworkConnected()) {
 
-            UFUInfoAPIClient.get().getCardapioRU("santa-monica", new Callback<CardapioRU>() {
 
-                @Override
-                public void success(CardapioRU cardaepioRU, Response response) {
-                    cardapioRU = cardaepioRU;
-                }
+        UFUInfoAPIClient.get().getCardapioRU("santa-monica", new Callback<CardapioRU>() {
 
-                @Override
-                public void failure(RetrofitError error) {
-                    Toast.makeText(getApplicationContext(),
-                            "deu ruim",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
+            @Override
+            public void success(CardapioRU cardapio, Response response) {
+                cardapioRU = cardapio;
+            }
 
-        }
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(getApplicationContext(),
+                        "deu ruim",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 
