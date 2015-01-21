@@ -1,10 +1,10 @@
 
 package io.github.mths0x5f.guiaufu.ru.pojo;
 
-import javax.annotation.Generated;
+// import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 
-@Generated("org.jsonschema2pojo")
+// @Generated("org.jsonschema2pojo")
 public class Refeicoes {
 
     @Expose

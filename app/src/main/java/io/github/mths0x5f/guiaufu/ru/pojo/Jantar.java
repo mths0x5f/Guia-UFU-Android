@@ -1,11 +1,11 @@
 
 package io.github.mths0x5f.guiaufu.ru.pojo;
 
-import javax.annotation.Generated;
+// import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("org.jsonschema2pojo")
+// @Generated("org.jsonschema2pojo")
 public class Jantar {
 
     @Expose
