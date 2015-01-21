@@ -1,4 +1,4 @@
-package io.github.mths0x5f.guiaufu;
+package io.github.mths0x5f.guiaufu.ru;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -19,6 +19,8 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import io.github.mths0x5f.guiaufu.R;
 
 
 public class RUCardapioActivity extends ActionBarActivity {
@@ -130,6 +132,7 @@ private TextView textView;
     // an InputStream. Finally, the InputStream is converted into a string, which is
     // displayed in the UI by the AsyncTask's onPostExecute method.
     private class DownloadWebpageTask extends AsyncTask<String, Void, String> {
+
         @Override
         protected String doInBackground(String... urls) {
 
@@ -145,6 +148,7 @@ private TextView textView;
         protected void onPostExecute(String result) {
             textView.setText(result);
         }
+
     }
 
 }
