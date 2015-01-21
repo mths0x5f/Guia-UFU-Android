@@ -7,4 +7,7 @@
     <string name="action_settings">Configurações</string>
     <string name="toast_no_network">Você não está conectado</string>
 
+    <string name="pref_syncConnectionType">Campus</string>
+    <string name="pref_syncConnectionTypes_default">santa-monica</string>
+
 </resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_syncConnectionTypes_entries">
+        <item>Santa Mônica</item>
+        <item>Umuarama</item>
+    </string-array>
+
+    <string-array name="pref_syncConnectionTypes_values">
+        <item>santa-monica</item>
+        <item>umuarama</item>
+    </string-array>
+
+</resources>
