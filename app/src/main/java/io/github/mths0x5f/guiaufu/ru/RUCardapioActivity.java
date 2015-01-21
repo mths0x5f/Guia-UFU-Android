@@ -10,39 +10,49 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.api.UFUInfoAPIClient;
-import io.github.mths0x5f.guiaufu.ru.pojo.RU;
+import io.github.mths0x5f.guiaufu.ru.pojo.CardapioRU;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
 public class RUCardapioActivity extends ActionBarActivity {
-private TextView textView;
+
+    private TextView textView;
+    private CardapioRU cardapioRU;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rucardapio);
+
+        // The mess begin below this line
         textView = (TextView) findViewById(R.id.textviewwwww);
-        isNetworkConnected();
 
-        UFUInfoAPIClient.get().getRU("santa-monica", new Callback<RU>() {
-            @Override
-            public void success(RU weatherResponse, Response response) {
-                // success!
-                Toast.makeText( getApplicationContext(),
-                        weatherResponse.getCardapios().get(0).getRefeicoes().getAlmoco().getPratoPrincipal(),
-                        Toast.LENGTH_SHORT ).show();
-            }
+        if(isNetworkConnected()) {
 
-            @Override
-            public void failure(RetrofitError error) {
-                Toast.makeText( getApplicationContext(),
-                        "deu ruim",
-                        Toast.LENGTH_SHORT ).show();
-            }
-        });
+            UFUInfoAPIClient.get().getCardapioRU("santa-monica", new Callback<CardapioRU>() {
+
+                @Override
+                public void success(CardapioRU cardaepioRU, Response response) {
+                    cardapioRU = cardaepioRU;
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(getApplicationContext(),
+                            "deu ruim",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
 
     }
 

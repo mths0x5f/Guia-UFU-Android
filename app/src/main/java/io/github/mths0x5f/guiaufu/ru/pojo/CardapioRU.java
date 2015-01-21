@@ -7,7 +7,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 
 // @Generated("org.jsonschema2pojo")
-public class RU {
+public class CardapioRU {
 
     @Expose
     private String campus;
