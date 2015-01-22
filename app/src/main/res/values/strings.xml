@@ -2,12 +2,15 @@
 <resources>
 
     <string name="app_name">Guia UFU</string>
+
     <string name="title_activity_rucardapio">Cardápio do RU</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Configurações</string>
     <string name="toast_no_network">Você não está conectado</string>
-    <string name="pref_syncConnectionType">Campus</string>
-    <string name="pref_syncConnectionTypes_default">santa-monica</string>
+
+    <string name="settings_category_general">Geral</string>
+    <string name="settings_campus_title">Campus</string>
+    <string name="settings_campus_default">santa-monica</string>
     <string name="title_activity_settings">Configurações</string>
 
 </resources>

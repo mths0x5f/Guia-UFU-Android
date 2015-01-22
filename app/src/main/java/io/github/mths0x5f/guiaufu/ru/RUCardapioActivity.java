@@ -1,18 +1,23 @@
 package io.github.mths0x5f.guiaufu.ru;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v7.widget.CardView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import io.github.mths0x5f.guiaufu.R;
+import io.github.mths0x5f.guiaufu.SettingsActivity;
 import io.github.mths0x5f.guiaufu.api.UFUInfoAPIClient;
 import io.github.mths0x5f.guiaufu.ru.pojo.CardapioRU;
 import retrofit.Callback;
@@ -31,7 +36,7 @@ public class RUCardapioActivity extends ActionBarActivity {
         setContentView(R.layout.activity_rucardapio);
 
         // The mess begin below this line
-        textView = (TextView) findViewById(R.id.textviewwwww);
+        textView = (TextView) findViewById(R.id.info_text);
 
 
 
@@ -40,6 +45,8 @@ public class RUCardapioActivity extends ActionBarActivity {
             @Override
             public void success(CardapioRU cardapio, Response response) {
                 cardapioRU = cardapio;
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(RUCardapioActivity.this);
+                textView.setText(cardapio.getCampus()+": "+sharedPref.getString("settings_campus",""));
             }
 
             @Override
@@ -54,6 +61,7 @@ public class RUCardapioActivity extends ActionBarActivity {
 
 
     }
+
 
 
     @Override
@@ -72,6 +80,11 @@ public class RUCardapioActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText( getApplicationContext(),
+                    item.getTitle(),
+                    Toast.LENGTH_SHORT ).show();
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -103,7 +116,5 @@ public class RUCardapioActivity extends ActionBarActivity {
         }
 
     }
-
-
 
 }

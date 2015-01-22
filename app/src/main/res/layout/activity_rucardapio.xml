@@ -1,12 +1,43 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="io.github.mths0x5f.guiaufu.ru.RUCardapioActivity">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="io.github.mths0x5f.guiaufu.ru.RUCardapioActivity"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:id="@+id/textviewwwww" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!-- A CardView that contains a TextView -->
 
-</RelativeLayout>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        card_view:cardCornerRadius="0dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Almoço"
+            android:id="@+id/textView"
+            android:background="#ff56b2ff"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:singleLine="true"
+            android:phoneNumber="false"
+            android:password="false" />
+
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.CardView>
+
+
+
+
+</LinearLayout>
