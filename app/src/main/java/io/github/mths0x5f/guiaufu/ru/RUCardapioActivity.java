@@ -3,10 +3,13 @@ package io.github.mths0x5f.guiaufu.ru;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.SettingsActivity;
@@ -25,10 +29,11 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
-public class RUCardapioActivity extends ActionBarActivity {
+public class RUCardapioActivity extends ActionBarActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private TextView textView;
     private CardapioRU cardapioRU;
+    private SwipeRefreshLayout swipeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +42,15 @@ public class RUCardapioActivity extends ActionBarActivity {
 
         // The mess begin below this line
         textView = (TextView) findViewById(R.id.info_text);
-
-
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        // enable status bar tint
+        tintManager.setStatusBarTintEnabled(true);
+        // enable navigation bar tint
+        tintManager.setNavigationBarTintEnabled(true);
+        // set a custom tint color for all system bars
+        //tintManager.setTintColor(Color.parseColor("#99000FF"));
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        swipeLayout.setOnRefreshListener(this);
 
         UFUInfoAPIClient.get().getCardapioRU("santa-monica", new Callback<CardapioRU>() {
 
@@ -46,7 +58,7 @@ public class RUCardapioActivity extends ActionBarActivity {
             public void success(CardapioRU cardapio, Response response) {
                 cardapioRU = cardapio;
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(RUCardapioActivity.this);
-                textView.setText(cardapio.getCampus()+": "+sharedPref.getString("settings_campus",""));
+                textView.setText(cardapio.getCardapios().get(0).getRefeicoes().getAlmoco().getPratoPrincipal());
             }
 
             @Override
@@ -115,6 +127,15 @@ public class RUCardapioActivity extends ActionBarActivity {
             return false;
         }
 
+    }
+
+    @Override
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                swipeLayout.setRefreshing(false);
+            }
+        }, 5000);
     }
 
 }
