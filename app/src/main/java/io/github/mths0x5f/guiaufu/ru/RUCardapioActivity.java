@@ -3,7 +3,6 @@ package io.github.mths0x5f.guiaufu.ru;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -13,12 +12,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.CardView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.SettingsActivity;
@@ -42,13 +37,7 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
 
         // The mess begin below this line
         textView = (TextView) findViewById(R.id.info_text);
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        // enable status bar tint
-        tintManager.setStatusBarTintEnabled(true);
-        // enable navigation bar tint
-        tintManager.setNavigationBarTintEnabled(true);
-        // set a custom tint color for all system bars
-        //tintManager.setTintColor(Color.parseColor("#99000FF"));
+
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(this);
 

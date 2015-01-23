@@ -1,21 +1,28 @@
 <resources>
 
-    <color name="action_bar">#3B3174</color>
+    <!-- Conforming to Google design guidelines
+        http://www.google.com/design/spec/style/color.html -->
+
+    <!-- Primary Colors -->
+    <color name="primary_100">#c2bfd4</color>
+    <color name="primary_500">#3b3174</color>
+    <color name="primary_700">#2f275e</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_A100">#ffff8d</color>
+    <color name="accent_A200">#ffff00</color>
+    <color name="accent_A400">#ffea00</color>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
-        <item name="colorPrimary">@color/action_bar</item>
-        <item name="android:textColorPrimary">#fff</item>
-        <item name="colorPrimaryDark">#fff</item>
-        <item name="colorAccent">@color/action_bar</item>
+        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorPrimaryDark">@color/primary_700</item>
+        <item name="colorAccent">@color/accent_A200</item>
 
-<!--
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:clipToPadding">false</item>-->
+
+
 
     </style>
 
