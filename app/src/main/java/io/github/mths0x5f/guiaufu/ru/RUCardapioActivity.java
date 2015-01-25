@@ -20,7 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.mths0x5f.guiaufu.MultipleFragments;
+import io.github.mths0x5f.guiaufu.util.MultipleFragments;
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.SettingsActivity;
 import io.github.mths0x5f.guiaufu.api.UFUInfoAPIClient;
@@ -78,12 +78,11 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             if (savedInstanceState != null) {
 
-                cardapioFragments = MultipleFragments.getByTag("cardapio", getFragmentManager());
-                Log.i("AAAAAAAAAAAAAAAA", "OLHE"+cardapioFragments.size());
+                cardapioFragments = MultipleFragments.findByTag("cardapio", getFragmentManager());
                 return;
             }
 
-
+            MultipleFragments.create()
 
 
             cardapioFragments = MultipleFragments.create(CardapioFragment.class, 10);
