@@ -1,5 +1,6 @@
 package io.github.mths0x5f.guiaufu.ru;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,12 +9,17 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.SettingsActivity;
@@ -29,6 +35,8 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
     private TextView textView;
     private CardapioRU cardapioRU;
     private SwipeRefreshLayout swipeLayout;
+    // Create a new Fragment to be placed in the activity layout
+    private List<CardapioFragment> cardapioFragmentArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,7 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
         setContentView(R.layout.activity_rucardapio);
 
         // The mess begin below this line
-        textView = (TextView) findViewById(R.id.info_text);
+
 
         swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(this);
@@ -58,11 +66,43 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
             }
         });
 
+        // Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+        if (findViewById(R.id.fragment_container) != null) {
 
+            // However, if we're being restored from a previous state,
+            // then we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            if (savedInstanceState != null) {
+
+                for(int i = 0; i< 10; i++)
+                    cardapioFragmentArrayList.add((CardapioFragment)getFragmentManager().
+                            findFragmentByTag("fragment_cardapio_"+i));
+                Log.i("aaa", "" + cardapioFragmentArrayList.size());
+                return;
+            }
+
+
+
+
+
+            for(int i = 0; i < 10; i++) {
+                cardapioFragmentArrayList.add(new CardapioFragment());
+                transaction.add(R.id.fragment_container,
+                        cardapioFragmentArrayList.get(i),
+                        "fragment_cardapio_"+i);
+            }
+
+
+
+            transaction.commit();
+            Log.i("aaa","OnCreate");
+
+        }
 
 
     }
-
 
 
     @Override
@@ -123,8 +163,26 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
                 swipeLayout.setRefreshing(false);
+                ((TextView) cardapioFragmentArrayList.get(0).getView().findViewById(R.id.textViewMealName)).setText("dfghkl");
+                Log.i("aaa", "" + cardapioFragmentArrayList.size());
             }
         }, 5000);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("aaa", "onStart");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state0
+
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+
     }
 
 }

@@ -2,15 +2,22 @@
 <resources>
 
     <string name="app_name">Guia UFU</string>
-
     <string name="title_activity_rucardapio">Cardápio do RU</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Configurações</string>
     <string name="toast_no_network">Você não está conectado</string>
-
     <string name="settings_category_general">Geral</string>
     <string name="settings_campus_title">Campus</string>
     <string name="settings_campus_default">santa-monica</string>
     <string name="title_activity_settings">Configurações</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="main_course">Prato Principal</string>
+    <string name="vegetarian_course">Prato Vegetariano</string>
+    <string name="beans">Feijão</string>
+    <string name="garnish">Guarnição</string>
+    <string name="salad">Salada</string>
+    <string name="dessert">Sobremesa</string>
+    <string name="juice">Suco</string>
 
 </resources>
