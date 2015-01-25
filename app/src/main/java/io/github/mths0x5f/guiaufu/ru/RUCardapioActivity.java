@@ -82,7 +82,7 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
                 return;
             }
 
-            MultipleFragments.create()
+
 
 
             cardapioFragments = MultipleFragments.create(CardapioFragment.class, 10);
