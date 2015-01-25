@@ -1,6 +1,5 @@
 package io.github.mths0x5f.guiaufu.ru;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.mths0x5f.guiaufu.MultipleFragments;
 import io.github.mths0x5f.guiaufu.R;
 import io.github.mths0x5f.guiaufu.SettingsActivity;
 import io.github.mths0x5f.guiaufu.api.UFUInfoAPIClient;
@@ -32,11 +32,13 @@ import retrofit.client.Response;
 
 public class RUCardapioActivity extends ActionBarActivity implements SwipeRefreshLayout.OnRefreshListener {
 
+    private static final String LOGCAT_TAG = "CardapioRU";
+
     private TextView textView;
     private CardapioRU cardapioRU;
     private SwipeRefreshLayout swipeLayout;
     // Create a new Fragment to be placed in the activity layout
-    private List<CardapioFragment> cardapioFragmentArrayList = new ArrayList<>();
+    private List<CardapioFragment> cardapioFragments = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,23 +78,17 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             if (savedInstanceState != null) {
 
-                for(int i = 0; i< 10; i++)
-                    cardapioFragmentArrayList.add((CardapioFragment)getFragmentManager().
-                            findFragmentByTag("fragment_cardapio_"+i));
-                Log.i("aaa", "" + cardapioFragmentArrayList.size());
+                cardapioFragments = MultipleFragments.getByTag("cardapio", getFragmentManager());
+                Log.i("AAAAAAAAAAAAAAAA", "OLHE"+cardapioFragments.size());
                 return;
             }
 
 
 
 
+            cardapioFragments = MultipleFragments.create(CardapioFragment.class, 10);
+            MultipleFragments.addToTransaction(cardapioFragments, R.id.fragment_container, "cardapio", transaction);
 
-            for(int i = 0; i < 10; i++) {
-                cardapioFragmentArrayList.add(new CardapioFragment());
-                transaction.add(R.id.fragment_container,
-                        cardapioFragmentArrayList.get(i),
-                        "fragment_cardapio_"+i);
-            }
 
 
 
@@ -163,8 +159,8 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
                 swipeLayout.setRefreshing(false);
-                ((TextView) cardapioFragmentArrayList.get(0).getView().findViewById(R.id.textViewMealName)).setText("dfghkl");
-                Log.i("aaa", "" + cardapioFragmentArrayList.size());
+                ((TextView) cardapioFragments.get(0).getView().findViewById(R.id.textViewMealName)).setText("dfghkl");
+                Log.i("aaa", "" + cardapioFragments.size());
             }
         }, 5000);
     }
@@ -184,5 +180,7 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
         super.onSaveInstanceState(savedInstanceState);
 
     }
+
+
 
 }
