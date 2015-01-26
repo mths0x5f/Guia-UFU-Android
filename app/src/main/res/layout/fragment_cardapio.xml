@@ -8,13 +8,14 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="7dp"
 
         card_view:cardCornerRadius="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:orientation="vertical">
 
 
@@ -25,7 +26,8 @@
                 android:fontFamily="sans-serif-light"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/lorem_ipsum"
-                android:id="@+id/textViewMealName" />
+                android:id="@+id/textViewMealName"
+                android:textSize="45sp"/>
 
             <TextView
                 android:layout_width="wrap_content"

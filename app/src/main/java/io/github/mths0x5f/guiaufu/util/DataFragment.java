@@ -24,12 +24,8 @@ public class DataFragment<T> extends Fragment {
         setRetainInstance(true);
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
+    public void setData(T data) { this.data = data; }
 
-    public T getData() {
-        return data;
-    }
+    public T getData() { return data; }
 
 }
