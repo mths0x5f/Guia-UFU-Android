@@ -19,5 +19,11 @@
     <string name="salad">Salada</string>
     <string name="dessert">Sobremesa</string>
     <string name="juice">Suco</string>
+    <string name="title_activity_cardapio_ru">Cardápio do RU</string>
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

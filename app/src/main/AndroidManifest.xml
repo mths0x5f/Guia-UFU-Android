@@ -26,6 +26,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.github.mths0x5f.guiaufu.ru.RUCardapioActivity" />
         </activity>
+        <activity
+            android:name=".ru.CardapioRUActivity"
+            android:label="@string/title_activity_cardapio_ru" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
