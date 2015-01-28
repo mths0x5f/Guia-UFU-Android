@@ -200,7 +200,14 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
             fm.executePendingTransactions();
 
             View almoco_view = cardapioCardsPerDay.get(0).getView();
+            View jantar_view = cardapioCardsPerDay.get(1).getView();
+
+            List<Object> l = new ArrayList<>();
             Almoco almoco = c.getRefeicoes().getAlmoco();
+            Jantar jantar = c.getRefeicoes().getJantar();
+            l.add(almoco);
+            l.add(jantar);
+
 
             ((TextView)almoco_view.findViewById(R.id.textViewMealName)).setText("Almoço");
             ((TextView)almoco_view.findViewById(R.id.textViewMainCourse)).setText(almoco.getPratoPrincipal());
@@ -211,8 +218,8 @@ public class RUCardapioActivity extends ActionBarActivity implements SwipeRefres
             ((TextView)almoco_view.findViewById(R.id.textViewDessert)).setText(almoco.getSobremesa());
             ((TextView)almoco_view.findViewById(R.id.textViewJuice)).setText(almoco.getSuco());
 
-            View jantar_view = cardapioCardsPerDay.get(1).getView();
-            Jantar jantar = c.getRefeicoes().getJantar();
+
+
 
             ((TextView)jantar_view.findViewById(R.id.textViewMealName)).setText("Jantar");
             ((TextView)jantar_view.findViewById(R.id.textViewMainCourse)).setText(jantar.getPratoPrincipal());

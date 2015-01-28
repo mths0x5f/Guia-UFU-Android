@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-light"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/lorem_ipsum"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -117,7 +117,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -127,7 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -136,7 +136,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
@@ -146,7 +146,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-bold"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textAllCaps="true"
@@ -155,7 +155,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/lorem_ipsum"
